@@ -4,15 +4,9 @@ from my_functions import send_email
 
 st.title("Contact Us")
 
-df = pandas.read_csv("topics.csv")
-topics = []
-for index, item in df.iterrows():
-    topics.append(item["topic"])
-print(f"topics= {topics}")
-
 with st.form(key="form_input"):
     user_email = st.text_input("myemail@gmail...")
-    topic_selection = st.selectbox("What topic do you want to discuss?", topics)
+    topic_selection = st.selectbox("What topic do you want to discuss?", df["topic"])
     raw_input = st.text_area("Enter your message here...")
 
     message = f"""\
