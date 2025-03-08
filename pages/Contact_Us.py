@@ -3,6 +3,7 @@ import pandas
 from my_functions import send_email
 
 st.title("Contact Us")
+df = pandas.read_csv("topics.csv")
 
 with st.form(key="form_input"):
     user_email = st.text_input("myemail@gmail...")
